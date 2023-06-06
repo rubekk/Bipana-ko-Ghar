@@ -13,5 +13,4 @@ const handleFilter=()=>{
     }
 }
 
-
 filterTxt.addEventListener("click", handleFilter);

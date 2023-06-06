@@ -22,7 +22,7 @@
         <h1><a href="./index.php">Bipana Ko Ghar</a></h1>
         </div>
         <div class="right">
-            <a href="./explore.php">Explore</a>
+            <a href="./../explore.php">Explore</a>
             <a href="./upload.php">Upload</a>
             <a class="login" href="./login.php">Log In</a>
         </div>

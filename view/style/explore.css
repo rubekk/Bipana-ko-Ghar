@@ -35,8 +35,10 @@ select{
     outline: none;
     cursor: pointer;
 }
+.filter-bottom{
+    margin-top: 1.5rem;
+}
 .hide{
-    margin-top: 3rem;
     display: none;
 }
 .inp-row{
@@ -72,16 +74,6 @@ input{
 }
 .min-max input{
     width: 100px;
-}
-.submit{
-    margin: 1rem 0 0;
-    display: flex;
-    justify-content: flex-end;
-}
-.submit-btn{
-    padding: .5rem .75rem;
-    border: 1px solid #000;
-    border-radius: 3px;
 }
 
 /* listing */
