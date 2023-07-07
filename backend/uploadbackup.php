@@ -17,31 +17,32 @@
         if($connection){   
             $uname=$_SESSION['username'];
 
-            $sql="SELECT id FROM users where uname='$uname'";
+            $sql="SELECT phone, email FROM users where uname='$uname'";
             $result=mysqli_query($connection, $sql);
             $row=$result->fetch_assoc();
 
-            $id=$row['id'];
+            $phone=$row['phone'];
+            $email=$row['email'];
 
             // uploading data to property table
-            $sql="INSERT INTO properties(id, pname, `address`, area, latitude, longitude, price, info) VALUES ('$id','$propertyName', '$address','$area', '$coordinatesArr[0]', '$coordinatesArr[1]', '$price', '$info')";
+            $sql="INSERT INTO property(pname, `address`, uname, phone, email, area, latitude, longitude, price, info) VALUES ('$propertyName', '$address', '$uname', '$phone', '$email','$area', '$coordinatesArr[0]', '$coordinatesArr[1]', '$price', '$info')";
             mysqli_query($connection, $sql);   
             
             // storing image
             $target_dir="./../uploads/";
-            $sql="SELECT pid FROM properties WHERE id='$id' AND `pname`='$propertyName' AND `area`='$area' AND `price`='$price' AND `info`='$info'";
-
+            $sql="SELECT pid FROM property WHERE uname='$uname' AND email='$email' AND `pname`='$propertyName' AND `area`='$area' AND `price`='$price' AND `info`='$info'";
             $result=mysqli_query($connection, $sql);
             $row=$result->fetch_assoc();
 
             $pid=$row['pid'];
 
             foreach ($imgAddress['name'] as $key => $value) {
-                $target_file = $target_dir . str_replace(" ","",basename($imgAddress["name"][$key]));
+                $target_file = $target_dir . basename($imgAddress["name"][$key]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                 
                 $check = getimagesize($imgAddress["tmp_name"][$key]);
+                var_dump($imgAddress['name']);
                 if($check !== false) {
                     move_uploaded_file($imgAddress['tmp_name'][$key], $target_file);
 
@@ -49,9 +50,7 @@
                     if($key==0) $isThumbnail=1;
                     else $isThumbnail=0;
 
-                    
-                    $sql="INSERT INTO pictures(pid, imgPath, isThumbnail) VALUES ('$pid', '$target_file', '$isThumbnail')";
-
+                    $sql="INSERT INTO photos(pid, imgPath, isThumbnail) VALUES ('$pid', '$target_file', '$isThumbnail')";
                     mysqli_query($connection, $sql);
                     $uploadOk = 1;
                 } else {

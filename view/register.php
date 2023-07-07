@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Bipana ko Ghar</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/logo.png">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- google fonts -->
@@ -17,13 +18,17 @@
 </head>
 <body>
     <div class="container">
-        <h1><a href="./index.php">Bipana Ko Ghar</a></h1>
+        <h1><a href="./index.php"><span class="blue">Bipana</span> <span class="green">Ko</span> <span class="blue">Ghar</span></a></h1>
         <div class="form">
             <h2>Register</h2>
             <form action="./../backend/register.php" method="post">
                 <div class="inp-group">
                     <div class="inp-label">Username</div>
                     <input type="name" placeholder="johndoe" name="name" required>
+                </div>
+                <div class="inp-group">
+                    <div class="inp-label">Phone no.</div>
+                    <input type="number" placeholder="9841108245" name="phoneno" required>
                 </div>
                 <div class="inp-group">
                     <div class="inp-label">Email</div>

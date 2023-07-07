@@ -1,7 +1,7 @@
 /* search */
 .search{
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     background-image: url('./../imgs/kathmandu.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,35 +15,88 @@
     margin-bottom: 4rem;
     padding: .75rem;
     background-color: rgba(0,0,0,.5);
+    background-color: #005091;
     border: 2px solid #dcdcdc;
     font-size: 2.5rem;
     color: #fff;
 }
-.inp{
-    display: flex;
+form{
+    width: 500px;
 }
 .search input{
-    width: 400px;
     height: 45px;
     padding: 0 .5rem 0 .75rem;
-    border: 1px solid #000;
-    border-right: none;
+    border: 2px solid #005091;
 }
-.search i{
+.inp-row{
+    width: 100%;
+    margin: .75rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inp-group{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inp-group input{
+    width: 80%;
+}
+.inp-label{
     width: 60px;
     height: 45px;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 2px solid #005091;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.area .inp-label, .location-inp{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-right-color: #005091;
+}
+.price .inp-label, .submit-btn{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-left-color: #005091;
+}
+.area input{
+    border-left: none;
+    border-right: none;
+}
+.price input{
+    border-left-color: #005091;
+    border-right: none;
+}
+.location-inp{
+    width: 100%;
+    border-right: none !important;
+}
+.submit-btn{
+    width: 60px;
+    height: 45px;
+    background-color: #fff;
+    border: 2px solid #005091;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    outline: none;
 }
 
 /* recent listings */
 .recent-listings{
-    margin: 4rem 0;
-    padding: 0 5rem;
+    margin: 0 0;
+    padding: 4rem 5rem 5rem;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.recent-listings h3{
+    margin: auto;
+    width: max-content;
+    border-bottom: 2px solid #005091;
 }
 .recent-listings-inner{
     margin-top: 2rem;
@@ -61,6 +114,6 @@
 }
 .see-more-btn{
     padding: .5rem .75rem;
-    border: 1px solid #000;
+    border: 1px solid #005091;
     border-radius: 3px;
 }

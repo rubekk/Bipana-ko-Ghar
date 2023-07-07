@@ -37,7 +37,31 @@ textarea{
 }
 .map{
     width: 100%;
+    position: relative;
+}
+.coords-inp{
+    display: none;
 }
 #map {
     height: 400px;
+}
+.select{
+    display: none;
+    position: absolute;
+    bottom: 2rem; 
+    right: .5rem;
+    z-index: 1000;
+}
+.coords-display{
+    display: none;
+    padding: .25rem .75rem;
+    width: max-content;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    position: absolute;
+    top: 2rem; 
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }

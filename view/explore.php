@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore - Bipana Ko Ghar</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/logo.png">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- google fonts -->
@@ -16,15 +17,22 @@
     <link rel="stylesheet" href="./style/explore.css">
 </head>
 <body>
+    <?php session_start(); ?>
     <!-- header section -->
     <div class="header">
         <div class="left">
-            <h1><a href="./index.php">Bipana Ko Ghar</a></h1>
+        <h1><a href="./index.php"><span class="blue">Bipana</span> <span class="green">Ko</span> <span class="blue">Ghar</span></a></h1>
         </div>
         <div class="right">
             <a href="./explore.php">Explore</a>
-            <a href="./upload.php">Upload</a>
-            <a class="login" href="./login.php">Log In</a>
+            <?php if($_SESSION && $_SESSION['loggedin']==true) { ?>
+                <a href="./upload.php">Upload</a>
+                <span><?php echo $_SESSION['username']; ?></span>
+                <a class="login" href="./../backend/logout.php">Log Out</a>
+            <?php } else { ?>
+                <a href="./login.php">Upload</a>
+                <a class="login" href="./login.php">Log In</a>
+            <?php } ?>
         </div>
     </div>
 
@@ -32,184 +40,90 @@
     <div class="filter">
         <div class="filter-top">
             <div class="filters-txt"><i class="fa-solid fa-sliders"></i> Filters</div>
-            <div class="sort-by">
-                <div class="sort-by-txt">Sort by:</div>
-                <select name="" id="">
-                    <option value="">Best match</option>
-                    <option value="">Price low to high</option>
-                    <option value="">Price high to low</option>
-                </select>
-            </div>
         </div>
         <div class="filter-bottom hide">
+            <form action="./explore.php" method="get">
             <div class="inp-row">
                 <div class="inp-group">
-                    <div class="inp-label">Location: </div>
-                    <input type="text" placeholder="eg: koteshwor" name="location">
+                    <div class="inp-label col-1">Location: </div>
+                    <input type="text" placeholder="eg: koteshwor" name="location" value="<?php echo isset($_GET['location'])?$_GET['location']:"" ?>">
                 </div>
                 <div class="inp-group">
                     <div class="inp-label">Area: </div>
-                    <input type="text" placeholder="0-4-2-0 (r-a-p-d)" name="area">
+                    <input type="text" placeholder="0-4-2-0 (r-a-p-d)" name="area" value="<?php echo isset($_GET['area'])?$_GET['area']:"" ?>">
                 </div>
             </div>
             <div class="inp-row">
-                <div class="price-inp">
-                    <div class="price-txt">Price: </div>
-                    <div class="min-max">
-                        <div class="inp-group">
-                            <div class="inp-label">Min: </div>
-                            <input type="number"  name="min">
-                        </div>
-                        <div class="inp-group">
-                            <div class="inp-label">Max: </div>
-                            <input type="number"  name="max">
-                        </div>
-                    </div>
+                <div class="inp-group">
+                    <div class="inp-label col-1">Price: </div>
+                    <input type="number" placeholder="Maximum price" name="price" value="<?php echo isset($_GET['price'])?$_GET['price']:"" ?>">
                 </div>
                 <div class="submit">
-                    <button class="submit-btn">Submit</button>
+                    <button class="submit-btn" type="submit">Submit</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 
     <!-- listing section -->
     <div class="listing">
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
-        <div class="ind-listing">
-            <div class="listing-img">
-                <img src="./imgs/kathmandu.jpg" alt="">
-            </div>
-            <div class="listing-text">
-                <div class="listing-name">Imadole, Mahalaxmi</div>
-                <div class="row">
-                    <div class="text-left">
-                        <div class="listing-price">Rs. 4500000 per aana</div>
-                        <div class="listing-area"><span>area:</span> 0-3-2-0</div>
-                    </div>
-                    <button class="view-btn">View</button>
-                </div>
-            </div>
-        </div>
+        <?php
+            include "./../backend/connection.php";
+            include "./../backend/filter.php";
+            
+            if(isset($_GET['location']) && isset($_GET['price']) && isset($_GET['area']) && $_GET['location'] && $_GET['price'] && $_GET['area']){
+                $data=refineLocation($connection, $_GET['location'], $_GET['area'], $_GET['price']);
+            }
+            else if(isset($_GET['location']) && isset($_GET['area']) && $_GET['location'] && $_GET['area']){
+                $data=refineLocation($connection, $_GET['location'], $_GET['area']);
+            }
+            else if(isset($_GET['location']) && isset($_GET['price']) && $_GET['location'] && $_GET['price']){
+                $data=refineLocation($connection, $_GET['location'], NULL, $_GET['price']);
+            }
+            else if(isset($_GET['area']) && isset($_GET['price']) && $_GET['area'] && $_GET['price']){
+                $data=filterByAreaPrice($connection, $_GET['area'], $_GET['price']);
+            }
+            else if(isset($_GET['location']) && $_GET['location']){
+                $data=refineLocation($connection, $_GET['location']);
+            }
+            else if(isset($_GET['area'])  && $_GET['area']){
+                $data=filterByArea($connection, $_GET['area']);
+            }
+            else if(isset($_GET['price']) && $_GET['price']){
+                $data=filterByPrice($connection, $_GET['price']);
+            }
+            else {
+                $data=getAllData($connection);
+            }
+
+            if(gettype($data)=='array' && count($data)){  
+                for($i=0; $i<count($data); $i++){
+                    $pid=$data[$i]['pid'];
+                    $address=$data[$i]['address'];
+                    $area=$data[$i]['area'];
+                    $price=$data[$i]['price'];
+                    $thumbnailPath=$data[$i]['imgPath'];
+
+                    echo '<div class="ind-listing">
+                        <div class="listing-img">
+                            <img src=' .$thumbnailPath. ' alt="">
+                        </div>
+                        <div class="listing-text">
+                            <div class="listing-name">'. $address .'</div>
+                            <div class="row">
+                                <div class="text-left">
+                                <div class="listing-price"> Rs. '. $price .' per aana</div>
+                                <div class="listing-area"><span>area:</span>'. $area .'</div>
+                            </div>
+                                <button class="view-btn"><a href="./listing.php?pid=' .$pid. '">View</a></button>
+                            </div>
+                        </div>
+                    </div>';
+                }
+            }
+            else echo "Sorry, no listings found!";
+        ?>
     </div>
 
     <!-- footer section -->

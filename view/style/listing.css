@@ -1,0 +1,62 @@
+/* property details */
+.property-detail{
+    margin: 1rem auto;
+    padding: 1rem; 
+    width: 850px;
+    background-color: rgba(0,0,0,.05);
+}
+.property-title{
+    margin: 0rem 0 1rem;
+}
+.property-imgs{
+    width: 100%;
+}
+.img-slider{
+    width: 100%;
+}
+.img-slider img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.imgs{
+    margin: .75rem auto 0;
+    padding: .5rem .5rem .1rem;
+    width: max-content;
+    border: 2px solid #000;
+}
+.active-img{
+    border: 2px solid #000;
+    filter: sepia(25%);
+}
+.imgs img{
+    margin: 0 .25rem;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.property-detail-txt{
+    margin-top: 2rem;
+}
+.property-info{
+    margin: 1rem 0 2rem;
+    padding: 1rem;
+    color: #5e5d5d;
+    background-color: #fff;
+}
+.property-info span{
+    margin-left: 1rem;
+    color: #000;
+    font-style: italic;
+}
+.map{
+    width: 100%;
+}
+h3{
+    margin: 1rem 0;
+}
+#map{
+    width: 100%;
+    height: 400px;
+}

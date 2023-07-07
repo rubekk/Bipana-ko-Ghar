@@ -23,20 +23,10 @@
 .filters-txt:hover{
     background-color: rgba(0, 0, 0, 0.05);
 }
-.sort-by{
-    display: flex;
-    align-items: center;
-}
-.sort-by-txt{
-    margin-right: .5rem;
-}
-select{
-    padding: .25rem;
-    outline: none;
-    cursor: pointer;
-}
 .filter-bottom{
     margin-top: 1.5rem;
+    padding: .5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .hide{
     display: none;
@@ -54,26 +44,14 @@ select{
 .inp-label{
    margin-right: .75rem;
 }
-.inp-row .inp-group{
-    width: 50%;
-}
-.inp-group:nth-child(1){
-    margin-right: 1rem;
+.col-1{
+    width: 70px;
 }
 input{
-    width: 100%;
+    width: 300px;
     height: 33px;
     padding: 0 .5rem;
     border: 1px solid #dcdcdc;
-}
-.price-txt{
-    margin: .5rem 0 .5rem;
-}
-.min-max{
-    display: flex;
-}
-.min-max input{
-    width: 100px;
 }
 
 /* listing */
